@@ -21,3 +21,7 @@
 
 ## 利用するサービス
 - Firebase : https://firebase.google.com/pricing?hl=ja&_gl=1*licbrn*_up*MQ..*_ga*Mjg4NzczMDQuMTcxMTYzODYzNg..*_ga_CW55HF8NVT*MTcxMTYzODYzNS4xLjAuMTcxMTYzODYzNS4wLjAuMA..#blaze-calculator
+
+
+## 参考にしているURL
+- https://flutter.keicode.com/basics/bottomnavigationbar.php
