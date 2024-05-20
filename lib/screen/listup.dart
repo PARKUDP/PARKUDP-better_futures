@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'task_preferences.dart';
 
-class listup extends StatefulWidget {
-  const listup({super.key});
+class Listup extends StatefulWidget {
+  final Function(Task) onAddTask;
+
+  const Listup({super.key, required this.onAddTask});
 
   @override
-  _listupState createState() => _listupState();
+  _ListupState createState() => _ListupState();
 }
 
-class _listupState extends State<listup> {
+class _ListupState extends State<Listup> {
   final TextEditingController _taskNameController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
   bool _isTaskNameError = false;
@@ -21,7 +24,7 @@ class _listupState extends State<listup> {
       lastDate: DateTime(2100),
     );
     if (picked != null) {
-      _dateController.text = picked.toString().split(' ')[0].split(' ')[0];
+      _dateController.text = picked.toString().split(' ')[0];
     }
   }
 
@@ -30,6 +33,17 @@ class _listupState extends State<listup> {
       _isTaskNameError = _taskNameController.text.isEmpty;
       _isDateError = _dateController.text.isEmpty;
     });
+
+    if (!_isTaskNameError && !_isDateError) {
+      _addTask();
+    }
+  }
+
+  void _addTask() {
+    final newTask =
+        Task(name: _taskNameController.text, dueDate: _dateController.text);
+    widget.onAddTask(newTask);
+    Navigator.of(context).pop();
   }
 
   @override
@@ -67,10 +81,14 @@ class _listupState extends State<listup> {
             ),
             const SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: () {
-                _validateInputs();
-              },
+              onPressed: _validateInputs,
               child: const Text('登録'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('キャンセル'),
             ),
           ],
         ),

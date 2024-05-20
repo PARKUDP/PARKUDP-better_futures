@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/screen/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screen/total.dart';
+import 'screen/listup.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

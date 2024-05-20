@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'todolist.dart';
 import 'signin.dart';
+import 'total.dart';
 
 class Loginpage extends StatelessWidget {
   const Loginpage({super.key});
@@ -82,7 +82,7 @@ class Loginpage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const Todopage()));
+                          builder: (context) => const TotalPage()));
                 } catch (e) {
                   // エラー処理
                   if (e is FirebaseAuthException) {
